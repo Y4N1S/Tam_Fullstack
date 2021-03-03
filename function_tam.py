@@ -14,8 +14,12 @@ def download():
 
 def stations():
     df=download()
-    stations=set(df['stop_name'].tolist())
-    return stations
+    station_list=[]
+    stations=(df['stop_name'].tolist())
+    for i in stations:
+        if i not in station_list:
+            station_list.append(i)
+    return station_list
 
   
 
