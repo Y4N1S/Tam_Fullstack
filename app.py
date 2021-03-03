@@ -7,18 +7,10 @@ app = Flask(__name__)
 
 
 @app.route('/')
-# def entry_point():
-#     df = pandas.read_csv('ong.csv', names=['id', 'country', 'year', 'emissions', 'value', 'footnotes', 'source'])
-#     if df is None:
-#         return abort(404)
-#     else:
-#         return df
-#     return render_template('home2.html',pagetitle="Home",test='home')
-
 
 @app.route('/stations')
 def entry_point():
-    return stations().to_string()  
+    return jsonify(stations())
     # return render_template('stations.html',pagetitle="Home",test='home')    
 
 @app.route("/stations/<station>")
