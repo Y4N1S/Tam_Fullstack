@@ -21,5 +21,20 @@ def stations():
             station_list.append(i)
     return station_list
 
-  
+def lines():
+    df=download()
+    lines_list=[]
+    lines=(df['route_short_name'].tolist())
+    for i in lines:
+        if i not in lines_list:
+            lines_list.append(i)
+    return lines_list
+
+def stations_and_lignes():
+    df = download()
+    result = {}
+    result['stop_name'] = str(df.iloc[0][3])
+    result['route_short_name'] = int(df.iloc[0][4])
+    result['trip_headsign'] = str(df.iloc[0][5])
+    return result
 
